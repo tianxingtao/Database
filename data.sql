@@ -66,6 +66,56 @@ LOCK TABLES `pcollection` WRITE;
 /*!40000 ALTER TABLE `pcollection` DISABLE KEYS */;
 /*!40000 ALTER TABLE `pcollection` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `pcomment`
+--
+
+DROP TABLE IF EXISTS `pcomment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `pcomment` (
+  `pcoid` int(11) NOT NULL AUTO_INCREMENT,
+  `pid` int(11) NOT NULL,
+  `uid` varchar(45) NOT NULL,
+  `pcomment` varchar(500) DEFAULT NULL,
+  `pspeaker` char(3) DEFAULT NULL,
+  PRIMARY KEY (`pcoid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pcomment`
+--
+
+LOCK TABLES `pcomment` WRITE;
+/*!40000 ALTER TABLE `pcomment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pcomment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pcommentconfig`
+--
+
+DROP TABLE IF EXISTS `pcommentconfig`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `pcommentconfig` (
+  `pcfid` int(11) NOT NULL AUTO_INCREMENT,
+  `pid` int(11) DEFAULT NULL,
+  `uid` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`pcfid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pcommentconfig`
+--
+
+LOCK TABLES `pcommentconfig` WRITE;
+/*!40000 ALTER TABLE `pcommentconfig` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pcommentconfig` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -76,4 +126,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-01-02 22:21:23
+-- Dump completed on 2019-01-02 22:21:49
