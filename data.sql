@@ -116,6 +116,89 @@ LOCK TABLES `pcommentconfig` WRITE;
 /*!40000 ALTER TABLE `pcommentconfig` DISABLE KEYS */;
 /*!40000 ALTER TABLE `pcommentconfig` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `productinfo`
+--
+
+DROP TABLE IF EXISTS `productinfo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `productinfo` (
+  `pid` int(11) NOT NULL AUTO_INCREMENT COMMENT '产品ID',
+  `pname` varchar(45) DEFAULT NULL COMMENT '产品名称',
+  `type` varchar(45) DEFAULT NULL COMMENT '产品类型',
+  `price` float DEFAULT NULL COMMENT '产品价格',
+  `introduce` varchar(500) DEFAULT NULL COMMENT '产品简介',
+  `cid` varchar(45) DEFAULT NULL COMMENT '产品所属公司',
+  `pnum` int(11) DEFAULT NULL COMMENT '产品库存',
+  `picturelocation` varchar(45) DEFAULT NULL,
+  `pview` int(11) DEFAULT '0',
+  `pbuynum` int(11) DEFAULT '0',
+  `pstatus` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`pid`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='产品';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `productinfo`
+--
+
+LOCK TABLES `productinfo` WRITE;
+/*!40000 ALTER TABLE `productinfo` DISABLE KEYS */;
+INSERT INTO `productinfo` VALUES (1,'hhhh','java',25,'dfkjlns','1',29384,NULL,17,0,NULL),(2,'sdfjhs','python',4,'sdf,jsnkf','1',10,NULL,0,0,NULL);
+/*!40000 ALTER TABLE `productinfo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `products`
+--
+
+DROP TABLE IF EXISTS `products`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `products` (
+  `pnid` int(11) NOT NULL DEFAULT '1',
+  `pnum` int(11) DEFAULT '0',
+  PRIMARY KEY (`pnid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `products`
+--
+
+LOCK TABLES `products` WRITE;
+/*!40000 ALTER TABLE `products` DISABLE KEYS */;
+INSERT INTO `products` VALUES (1,0);
+/*!40000 ALTER TABLE `products` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pshoppingcart`
+--
+
+DROP TABLE IF EXISTS `pshoppingcart`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `pshoppingcart` (
+  `psid` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` varchar(45) DEFAULT NULL,
+  `pid` int(11) DEFAULT NULL,
+  `num` int(11) DEFAULT NULL,
+  PRIMARY KEY (`psid`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pshoppingcart`
+--
+
+LOCK TABLES `pshoppingcart` WRITE;
+/*!40000 ALTER TABLE `pshoppingcart` DISABLE KEYS */;
+INSERT INTO `pshoppingcart` VALUES (2,'uid',1,1),(4,'uid',1,4),(6,'uid',1,11),(7,'uid',1,111),(8,'uid',1,1113);
+/*!40000 ALTER TABLE `pshoppingcart` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -126,4 +209,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-01-02 22:21:49
+-- Dump completed on 2019-01-02 22:22:20
