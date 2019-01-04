@@ -27,7 +27,7 @@ public class ProductinfoService {
 	}
 	
 	public void addProductinfo(Productinfo productinfo,MultipartFile file,HttpServletRequest request) {
-		if(file != null) {
+		if(file != null&&file.getOriginalFilename()!=null&&file.getOriginalFilename().length()>0) {
 			String originalFileName = file.getOriginalFilename(); 
             // 获取图片后缀
             String suffix = originalFileName.substring(originalFileName.lastIndexOf(".")); 
@@ -36,6 +36,7 @@ public class ProductinfoService {
             // 图片存储路径
             String path="view/img/";
             String filePath =  request.getSession().getServletContext().getRealPath(path)+ fileName;
+            System.out.println(request.getSession().getServletContext().getRealPath(path));
             File saveFile = new File(filePath);
             try {
                 // 将上传的文件保存到服务器文件系统
@@ -50,7 +51,7 @@ public class ProductinfoService {
 	}
 	
     public void updateProductinfo(Productinfo productinfo,MultipartFile file,HttpServletRequest request) {
-		if(file != null) {
+		if(file != null&&file.getOriginalFilename()!=null&&file.getOriginalFilename().length()>0) {
 			String originalFileName = file.getOriginalFilename(); 
             // 获取图片后缀
             String suffix = originalFileName.substring(originalFileName.lastIndexOf(".")); 
@@ -97,4 +98,6 @@ public class ProductinfoService {
 	public List<Productinfo> getProductinfoByHql(String hql){
 		return this.productinfoDAO.getProductinfoByHql(hql);
 	}
+	
+	
 }
